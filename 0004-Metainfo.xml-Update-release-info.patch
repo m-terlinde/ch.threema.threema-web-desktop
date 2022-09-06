@@ -2,10 +2,11 @@ diff --git a/ch.threema.threema-web-desktop.metainfo.xml b/ch.threema.threema-we
 index 10e8d44..bbbd824 100644
 --- a/ch.threema.threema-web-desktop.metainfo.xml
 +++ b/ch.threema.threema-web-desktop.metainfo.xml
-@@ -24,6 +24,9 @@
+@@ -24,6 +24,10 @@
      </screenshot>
    </screenshots>
    <releases>
++    <release version="1.2.13" date="2022-06-07"/>
 +    <release version="1.2.7" date="2022-04-26"/>
 +    <release version="1.2.5" date="2022-04-20"/>
 +    <release version="1.2.0" date="2022-04-04"/>
