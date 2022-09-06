@@ -17,7 +17,7 @@ and recursively (`-r`) collecting the info of all relevant dependency files
 using the flatpak-builder-tools [3]:
 
     git clone --recurse-submodules https://github.com/threema-ch/threema-web-electron.git
-    flatpak-node-generator npm -r --xdg-layout --electron-node-headers \
+    flatpak-node-generator npm -r --electron-node-headers \
             package-lock.json
 
 We also need to add the electron headers, otherwise the postinstall of electron
