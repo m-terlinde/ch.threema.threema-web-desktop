@@ -1,11 +1,11 @@
 app-id: ch.threema.threema-web-desktop
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '21.08'
+base-version: '22.08'
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node14
+  - org.freedesktop.Sdk.Extension.node16
 command: run.sh
 separate-locales: false
 finish-args:
@@ -15,12 +15,12 @@ finish-args:
   - --share=network
   - --filesystem=xdg-download
 build-options:
-  append-path: /usr/lib/sdk/node14/bin
+  append-path: /usr/lib/sdk/node16/bin
   env:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    threema_web_version: threema-web-2.3.19
+    threema_web_version: threema-web-2.4.2
   arch:
     x86_64:
       env:
@@ -37,12 +37,12 @@ modules:
       env:
         XDG_CACHE_HOME: /run/build/threema-web-desktop/flatpak-node/cache
         npm_config_cache: /run/build/threema-web-desktop/flatpak-node/npm-cache
-        npm_config_nodedir: /usr/lib/sdk/node14
+        npm_config_nodedir: /usr/lib/sdk/node16
         npm_config_offline: 'true'
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: daef5b6a5ec60a11338a1c0d2da30613c0ce193d
+        commit: 3d8644621122b7f4c2a419934d3ad8caa08fe6a6
       # The metainfo doesn't validate with
       # flatpak run org.freedesktop.appstream-glib validate ch.threema.threema-web-desktop.appdata.xml
       - type: patch
@@ -53,6 +53,9 @@ modules:
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0003-note-unofficial-flatpak.patch
+      # Update metainfo which is tracked upstream but outdated
+      - type: patch
+        path: 0004-Metainfo.xml-Update-release-info.patch
       - generated-sources.json
       # Wrapper to launch the app
       - type: script
