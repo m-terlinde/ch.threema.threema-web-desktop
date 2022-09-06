@@ -42,7 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: daef5b6a5ec60a11338a1c0d2da30613c0ce193d
+        commit: f4eee3b87f2a4fce0222d74e06fb7c41db954464
       # The metainfo doesn't validate with
       # flatpak run org.freedesktop.appstream-glib validate ch.threema.threema-web-desktop.appdata.xml
       - type: patch
@@ -53,6 +53,9 @@ modules:
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0003-note-unofficial-flatpak.patch
+      # Update metainfo which is tracked upstream but outdated
+      - type: patch
+        path: 0004-Metainfo.xml-Update-release-info.patch
       - generated-sources.json
       # Wrapper to launch the app
       - type: script
