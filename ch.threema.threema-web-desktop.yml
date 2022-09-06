@@ -20,7 +20,7 @@ build-options:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    threema_web_version: threema-web-2.3.19
+    threema_web_version: threema-web-2.3.20
   arch:
     x86_64:
       env:
@@ -42,7 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: f4eee3b87f2a4fce0222d74e06fb7c41db954464
+        commit: e031cf43bff40e36ba3e1a0816e94d13612de69a
       # The metainfo doesn't validate with
       # flatpak run org.freedesktop.appstream-glib validate ch.threema.threema-web-desktop.appdata.xml
       - type: patch
