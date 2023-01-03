@@ -20,7 +20,7 @@ build-options:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    threema_web_version: threema-web-2.4.2
+    threema_web_version: threema-web-2.4.4
   arch:
     x86_64:
       env:
@@ -40,22 +40,24 @@ modules:
         npm_config_nodedir: /usr/lib/sdk/node16
         npm_config_offline: 'true'
     sources:
-      - type: git
-        url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 3d8644621122b7f4c2a419934d3ad8caa08fe6a6
-      # The metainfo doesn't validate with
-      # flatpak run org.freedesktop.appstream-glib validate ch.threema.threema-web-desktop.appdata.xml
+      # Temporarily use archives for source downloads since Threema 1.2.21
+      # has an out-of-date git submodule
+      - type: archive
+        url: https://github.com/threema-ch/threema-web-electron/archive/1b6887153d479ba276f729d69fddca06d15c9070.zip
+        sha256: 28ee59804fdc84d31e688180f3ba59d5eb61c68a46d5218984604bfc4a484272
+      - type: archive
+        url: https://github.com/threema-ch/threema-web/archive/refs/tags/v2.4.4.zip
+        sha256: 272f8c4bd30ac55d5e99618f633443087a04e168746a02e05fb77cbf94aecc10
+        dest: app/dependencies/threema-web
+      #- type: git
+      #  url: https://github.com/threema-ch/threema-web-electron.git
+      #  commit: 1b6887153d479ba276f729d69fddca06d15c9070
+      # Threema requested that the package must be declared as community maintained
       - type: patch
-        path: 0001-metainfo-caption-trailing-dot.patch
+        path: 0001-note-unofficial-flatpak.patch
       # Add support for building AARCH64 on Debian
       - type: patch
         path: 0002-add-debian-aarch64-build.patch
-      # Threema requested that the package must be declared as community maintained
-      - type: patch
-        path: 0003-note-unofficial-flatpak.patch
-      # Update metainfo which is tracked upstream but outdated
-      - type: patch
-        path: 0004-Metainfo.xml-Update-release-info.patch
       - generated-sources.json
       # Wrapper to launch the app
       - type: script
