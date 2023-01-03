@@ -20,7 +20,7 @@ build-options:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    threema_web_version: threema-web-2.4.2
+    threema_web_version: threema-web-2.5.0
   arch:
     x86_64:
       env:
@@ -42,21 +42,17 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 3d8644621122b7f4c2a419934d3ad8caa08fe6a6
-      # The metainfo doesn't validate with
-      # flatpak run org.freedesktop.appstream-glib validate ch.threema.threema-web-desktop.appdata.xml
+        commit: ebdef0fc5702d548f6a32caa090a27931398d130
+      # Threema requested that the package must be declared as community maintained
       - type: patch
-        path: 0001-metainfo-caption-trailing-dot.patch
+        path: 0001-note-unofficial-flatpak.patch
       # Add support for building AARCH64 on Debian
       - type: patch
         path: 0002-add-debian-aarch64-build.patch
-      # Threema requested that the package must be declared as community maintained
-      - type: patch
-        path: 0003-note-unofficial-flatpak.patch
+      - generated-sources.json
       # Update metainfo which is tracked upstream but outdated
       - type: patch
-        path: 0004-Metainfo.xml-Update-release-info.patch
-      - generated-sources.json
+        path: 0003-Metainfo.xml-Update-release-info.patch
       # Wrapper to launch the app
       - type: script
         dest-filename: run.sh
