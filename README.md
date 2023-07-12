@@ -28,6 +28,9 @@ specific.
 
   We also need to add the electron headers, otherwise the postinstall of electron
   will try to fetch additional dependencies in the build step as well.
+
+  *Note:* Make sure you run this on a clean source directory, otherwise the generator
+  [may exclude some dependencies!](https://github.com/flatpak/flatpak-builder-tools/issues/354#issuecomment-1478518442)
 * [x] Update the commit hash pointing to the new release
 * [x] Make sure the metainfo.xml is up to date, patch it, if necessary.
 * [x] Switch to a newer Freedesktop SDK if available.
