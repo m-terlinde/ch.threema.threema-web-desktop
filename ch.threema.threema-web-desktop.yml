@@ -42,7 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 87c306abab3cccb879de4941484552d1b3ac79ea
+        commit: 22e557e442b7ca771fe3790fa498f0d422d158cc
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
