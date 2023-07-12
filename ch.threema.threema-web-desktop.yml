@@ -5,7 +5,7 @@ sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
 base-version: '22.08'
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node16
+  - org.freedesktop.Sdk.Extension.node18
 command: run.sh
 separate-locales: false
 finish-args:
@@ -20,7 +20,7 @@ build-options:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    threema_web_version: threema-web-2.5.0
+    threema_web_version: threema-web-2.5.1
   arch:
     x86_64:
       env:
@@ -42,7 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: ebdef0fc5702d548f6a32caa090a27931398d130
+        commit: 22e557e442b7ca771fe3790fa498f0d422d158cc
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
@@ -50,9 +50,6 @@ modules:
       - type: patch
         path: 0002-add-debian-aarch64-build.patch
       - generated-sources.json
-      # Update metainfo which is tracked upstream but outdated
-      - type: patch
-        path: 0003-Metainfo.xml-Update-release-info.patch
       # Wrapper to launch the app
       - type: script
         dest-filename: run.sh
