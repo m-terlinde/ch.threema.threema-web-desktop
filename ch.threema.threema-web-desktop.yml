@@ -20,7 +20,7 @@ build-options:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    threema_web_version: threema-web-2.5.1
+    threema_web_version: threema-web-2.5.2
   arch:
     x86_64:
       env:
@@ -42,7 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 22e557e442b7ca771fe3790fa498f0d422d158cc
+        commit: d8ee722eeb1e82e6f811f3d4e1f9e06ebd635428
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
