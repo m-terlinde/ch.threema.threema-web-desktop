@@ -42,7 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 203dcd2025d98c1258dcdc58d55639e5f8195253
+        commit: c9782177d75a09064042ed31666733b7673f5d67
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
@@ -50,6 +50,9 @@ modules:
       - type: patch
         path: 0002-add-debian-aarch64-build.patch
       - generated-sources.json
+      # Fix metainfo XML which I broke upstream whelp
+      - type: patch
+        path: 0003-Metainfo.xml-Fix-release-info.patch
       # Wrapper to launch the app
       - type: script
         dest-filename: run.sh
