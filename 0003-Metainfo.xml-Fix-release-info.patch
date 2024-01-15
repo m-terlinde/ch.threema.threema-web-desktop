@@ -1,8 +1,8 @@
 diff --git a/ch.threema.threema-web-desktop.metainfo.xml b/ch.threema.threema-web-desktop.metainfo.xml
-index 86cd4e2..2845fee 100644
+index 65c6238..aae1325 100644
 --- a/ch.threema.threema-web-desktop.metainfo.xml
 +++ b/ch.threema.threema-web-desktop.metainfo.xml
-@@ -32,7 +32,7 @@
+@@ -40,7 +40,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1239</url>
      </release>
@@ -11,7 +11,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -40,7 +40,7 @@
+@@ -48,7 +48,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1238</url>
      </release>
@@ -20,7 +20,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Security update for Electron (fix for CVE-2023-4863)</li>
-@@ -48,7 +48,7 @@
+@@ -56,7 +56,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1237</url>
      </release>
@@ -29,7 +29,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -56,7 +56,7 @@
+@@ -64,7 +64,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1236</url>
      </release>
@@ -38,7 +38,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -64,7 +64,7 @@
+@@ -72,7 +72,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1235</url>
      </release>
@@ -47,7 +47,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -72,7 +72,7 @@
+@@ -80,7 +80,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1231</url>
      </release>
@@ -56,7 +56,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -80,7 +80,7 @@
+@@ -88,7 +88,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1229</url>
      </release>
@@ -65,7 +65,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -88,7 +88,7 @@
+@@ -96,7 +96,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1227</url>
      </release>
@@ -74,7 +74,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -96,7 +96,7 @@
+@@ -104,7 +104,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1225</url>
      </release>
@@ -83,7 +83,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -104,7 +104,7 @@
+@@ -112,7 +112,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1221</url>
      </release>
@@ -92,7 +92,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -112,7 +112,7 @@
+@@ -120,7 +120,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1218</url>
      </release>
@@ -101,7 +101,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -120,7 +120,7 @@
+@@ -128,7 +128,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_1213</url>
      </release>
@@ -110,7 +110,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>Miscellaneous minor improvements and bug fixes</li>
-@@ -128,7 +128,7 @@
+@@ -136,7 +136,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_127</url>
      </release>
@@ -119,7 +119,7 @@ index 86cd4e2..2845fee 100644
        <description>
          <ul>
            <li>macOS: File attributes are set correctly on downloaded files</li>
-@@ -137,7 +137,7 @@
+@@ -145,7 +145,7 @@
        </description>
        <url>https://threema.ch/en/whats-new#web_desktop_125</url>
      </release>
