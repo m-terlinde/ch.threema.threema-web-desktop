@@ -53,6 +53,10 @@ modules:
       # Fix metainfo XML which I broke upstream whelp
       - type: patch
         path: 0003-Metainfo.xml-Fix-release-info.patch
+      # Skip the actual Electron asar packaging which
+      # breaks CI and we don't need it anyway :-)
+      - type: patch
+        path: 0004-Disable-full-Electron-packaging.patch
       # Wrapper to launch the app
       - type: script
         dest-filename: run.sh
