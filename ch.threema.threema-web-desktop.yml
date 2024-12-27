@@ -20,7 +20,7 @@ build-options:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    threema_web_version: threema-web-2.5.5
+    THREEMA_WEB_VERSION: threema-web-2.5.5
   arch:
     x86_64:
       env:
@@ -42,7 +42,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 2390789dbf28afb1056e324ca243d21ed3052775
+        commit: 45815a15b468c74280a0cb6814e86308a805144f
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
@@ -50,7 +50,7 @@ modules:
       - type: patch
         path: 0002-add-debian-aarch64-build.patch
       - generated-sources.json
-      # Fix metainfo XML which I broke upstream whelp
+      # Get the XML metadata through the validator
       - type: patch
         path: 0003-Metainfo.xml-Fix-release-info.patch
       # Skip the actual Electron asar packaging which

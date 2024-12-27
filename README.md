@@ -10,7 +10,7 @@ specific.
 
 ## Packaging / Release Update Checklist
 
-* [x] Make sure that `threema_web_version` environment variable matches the
+* [x] Make sure that `THREEMA_WEB_VERSION` environment variable matches the
   `version` field in the `package.json` of the `app/dependencies/threema-web`
   submodule (as described in the README).
 * [x] Since the app uses Electron we use the official Flatpak Electron template.
