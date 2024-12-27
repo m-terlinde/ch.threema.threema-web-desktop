@@ -50,7 +50,7 @@ modules:
       - type: patch
         path: 0002-add-debian-aarch64-build.patch
       - generated-sources.json
-      # Fix metainfo XML which I broke upstream whelp
+      # Get the XML metadata through the validator
       - type: patch
         path: 0003-Metainfo.xml-Fix-release-info.patch
       # Skip the actual Electron asar packaging which
