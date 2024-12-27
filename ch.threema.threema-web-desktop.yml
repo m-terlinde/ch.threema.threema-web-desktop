@@ -1,11 +1,11 @@
 app-id: ch.threema.threema-web-desktop
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '23.08'
+base-version: '24.08'
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node18
+  - org.freedesktop.Sdk.Extension.node20
 command: run.sh
 separate-locales: false
 finish-args:
@@ -15,12 +15,12 @@ finish-args:
   - --share=network
   - --filesystem=xdg-download
 build-options:
-  append-path: /usr/lib/sdk/node18/bin
+  append-path: /usr/lib/sdk/node20/bin
   env:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
     DEV_ENV: development
-    THREEMA_WEB_VERSION: threema-web-2.5.5
+    THREEMA_WEB_VERSION: threema-web-2.5.7
   arch:
     x86_64:
       env:
@@ -37,12 +37,12 @@ modules:
       env:
         XDG_CACHE_HOME: /run/build/threema-web-desktop/flatpak-node/cache
         npm_config_cache: /run/build/threema-web-desktop/flatpak-node/npm-cache
-        npm_config_nodedir: /usr/lib/sdk/node18
+        npm_config_nodedir: /usr/lib/sdk/node20
         npm_config_offline: 'true'
     sources:
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 45815a15b468c74280a0cb6814e86308a805144f
+        commit: 111f775ce6674fc57b2870964cf8912c6a76067f
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
