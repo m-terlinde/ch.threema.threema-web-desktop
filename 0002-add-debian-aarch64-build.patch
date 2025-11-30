@@ -85,18 +85,18 @@ index 5b17471..9bc22bc 100644
  
  main();
 diff --git a/tools/run-dist-electron.js b/tools/run-dist-electron.js
-index 12e3ab1..e135d17 100644
+index f4c4ca3..11c368c 100644
 --- a/tools/run-dist-electron.js
 +++ b/tools/run-dist-electron.js
-@@ -10,6 +10,8 @@ const common = require("./packaging/common");
- const makeUniversalApp = require("@electron/universal");
+@@ -15,6 +15,8 @@ import {
+ import {signWindowsBinaryOrPackage} from "./signing/sign-windows.js";
  
  const DEV_ENV = process.env.DEV_ENV;
 +const ARCH_OUTNAME = process.env.ARCH_OUTNAME;
 +const ARCH_ELECTRON = process.env.ARCH_ELECTRON;
+ const log = debug("dist-electron");
  
  let packageName = "";
- 
 -- 
 2.35.1
 

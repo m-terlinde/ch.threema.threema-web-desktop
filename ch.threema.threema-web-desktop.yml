@@ -40,9 +40,10 @@ modules:
         npm_config_nodedir: /usr/lib/sdk/node20
         npm_config_offline: 'true'
     sources:
+      # Threema Web Electron release 1.2.49
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 8d8eacad7dc8cb7f419ac2279f80fe8754d5fa17
+        commit: 6fc9e3d7065e3f5b977c8668e6dfb524ee2c1450
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
