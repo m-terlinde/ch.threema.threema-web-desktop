@@ -10,10 +10,10 @@ Subject: Add support for Debian arm64 build
  3 files changed, 18 insertions(+), 6 deletions(-)
 
 diff --git a/app/package.json b/app/package.json
-index 15695fe..6d0c79d 100644
+index dc9e5d1..45d331a 100644
 --- a/app/package.json
 +++ b/app/package.json
-@@ -174,7 +174,8 @@
+@@ -176,7 +176,8 @@
            "executableName": "threema-web",
            "platform": "linux",
            "arch": [
@@ -22,8 +22,8 @@ index 15695fe..6d0c79d 100644
 +            "arm64"
            ],
            "icons": {
-             "128x128": "app/assets/icons/png/consumer-128x128.png",
-@@ -190,7 +191,8 @@
+             "48x48": "app/assets/icons/png/consumer-48x48.png",
+@@ -194,7 +195,8 @@
            "executableName": "threema-work-web",
            "platform": "linux",
            "arch": [
@@ -32,9 +32,9 @@ index 15695fe..6d0c79d 100644
 +            "arm64"
            ],
            "icons": {
-             "128x128": "app/assets/icons/png/work-128x128.png",
-@@ -206,7 +208,8 @@
-           "executableName": "threema-red-web",
+             "48x48": "app/assets/icons/png/work-48x48.png",
+@@ -212,7 +214,8 @@
+           "executableName": "threema-blue-web",
            "platform": "linux",
            "arch": [
 -            "x64"
@@ -42,13 +42,13 @@ index 15695fe..6d0c79d 100644
 +            "arm64"
            ],
            "icons": {
-             "128x128": "app/assets/icons/png/red-128x128.png",
+             "48x48": "app/assets/icons/png/blue-48x48.png",
 diff --git a/tools/packaging/package-deb.js b/tools/packaging/package-deb.js
-index 5b17471..9bc22bc 100644
+index e077352..7d243cd 100644
 --- a/tools/packaging/package-deb.js
 +++ b/tools/packaging/package-deb.js
-@@ -14,11 +14,17 @@ async function main() {
-     executableName += `-${common.getChannelName()}`;
+@@ -19,11 +19,17 @@ async function main() {
+     executableName += `-${getChannelName()}`;
    }
  
 -  console.log(`Creating package for ${appDirName} (this may take a while)`);
@@ -67,16 +67,16 @@ index 5b17471..9bc22bc 100644
      dest: "app/build/dist-electron/installers",
      name: appDirName,
      bin: executableName,
-@@ -27,7 +33,7 @@ async function main() {
+@@ -32,7 +38,7 @@ async function main() {
      genericName: "Threema Desktop Client",
      maintainer: "Threema GmbH <help@threema.ch>",
      icon: configs["linux-deb"][myArgs[0]]["icons"],
 -    arch: "amd64",
 +    arch: "${ARCH_OUTNAME}",
      homepage: "https://threema.ch",
-     categories: ["Social Media"],
+     categories: ["Network", "InstantMessaging", "Chat"],
      description: "Desktop client for Threema (requires the mobile app)",
-@@ -44,6 +50,7 @@ async function main() {
+@@ -49,6 +55,7 @@ async function main() {
      console.error(err, err.stack);
      process.exit(1);
    }
@@ -98,5 +98,5 @@ index f4c4ca3..11c368c 100644
  
  let packageName = "";
 -- 
-2.35.1
+2.47.1
 

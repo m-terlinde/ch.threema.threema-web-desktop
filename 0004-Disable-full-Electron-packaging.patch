@@ -16,7 +16,7 @@ diff --git a/tools/run-dist-electron.js b/tools/run-dist-electron.js
 index f4c4ca3..7c47123 100644
 --- a/tools/run-dist-electron.js
 +++ b/tools/run-dist-electron.js
-@@ -101,6 +101,7 @@ async function buildPackage(pkg, os, flavour) {
+@@ -103,6 +103,7 @@ async function buildPackage(pkg, os, flavour) {
      prune: true,
      overwrite: true,
      asar: true,
@@ -24,7 +24,7 @@ index f4c4ca3..7c47123 100644
      arch: osConfig["arch"],
      platform: osConfig["platform"],
      icon: osConfig["iconPath"],
-@@ -281,7 +282,9 @@ async function main() {
+@@ -283,7 +284,9 @@ async function main() {
      await buildPackage(pkg, os, flavour);
    } catch (error) {
      console.log(`Could not create package because of an error: ${error}`);
