@@ -10,7 +10,8 @@ command: run.sh
 separate-locales: false
 finish-args:
   - --share=ipc
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --socket=pulseaudio
   - --share=network
   - --filesystem=xdg-download
@@ -62,7 +63,7 @@ modules:
       - type: script
         dest-filename: run.sh
         commands:
-          - zypak-wrapper.sh /app/main/threema-web "$@"
+          - zypak-wrapper.sh /app/main/threema-web --ozone-platform-hint=auto "$@"
       - type: file
         path: ch.threema.threema-web-desktop.desktop
     build-commands:
