@@ -1,0 +1,3 @@
+threema-web-electron/
+.flatpak-builder/
+builddir/
