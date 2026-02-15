@@ -1,28 +1,31 @@
 From ff1276a3a31c025578e0c2133ac094fcd4ec03bb Mon Sep 17 00:00:00 2001
 From: Leonard Janis Robert Koenig <ljrk@ljrk.org>
 Date: Fri, 27 Dec 2024 00:46:26 +0100
-Subject: [PATCH] Ignore errors for full Electron packaging
+Subject: [PATCH] Use pre-cached Electron zip for offline Flatpak builds
 
-This fails within CI because of some dependencies that
-flatpak-node-generator doesn't pick up(?):
-
-> Prepare package for linux-deb consumer
-> Could not create package because of an error: RequestError: getaddrinfo EAI_AGAIN github.com
-
-Sometimes(?) this builds successfully anyway because of a
-race condition(?) in the wrapping script and actually the
-built Electron asar package(?). So let's just ignore any errors
-in this step and hope for the best :D
+@electron/packager normally downloads Electron from GitHub, which fails
+in the Flatpak build sandbox (no network access). Use the electronZipDir
+option to point it at the pre-downloaded Electron zip from
+flatpak-node-generator's cache. Also keep the error-ignoring fallback
+just in case.
 ---
- tools/run-dist-electron.js | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ tools/run-dist-electron.js | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/tools/run-dist-electron.js b/tools/run-dist-electron.js
-index 267f7bf..d0cd57a 100644
+index f4c4ca3..7c47123 100644
 --- a/tools/run-dist-electron.js
 +++ b/tools/run-dist-electron.js
-@@ -282,8 +282,10 @@ async function main() {
-     await package(pkg, os, flavour);
+@@ -101,6 +101,7 @@ async function buildPackage(pkg, os, flavour) {
+     prune: true,
+     overwrite: true,
+     asar: true,
++    electronZipDir: process.env.XDG_CACHE_HOME ? `${process.env.XDG_CACHE_HOME}/electron` : undefined,
+     arch: osConfig["arch"],
+     platform: osConfig["platform"],
+     icon: osConfig["iconPath"],
+@@ -281,7 +282,9 @@ async function main() {
+     await buildPackage(pkg, os, flavour);
    } catch (error) {
      console.log(`Could not create package because of an error: ${error}`);
 -    process.exit(1);
@@ -32,7 +35,6 @@ index 267f7bf..d0cd57a 100644
 +
  }
  
- if (require.main === module) {
 -- 
 2.47.1
 
