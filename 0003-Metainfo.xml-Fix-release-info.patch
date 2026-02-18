@@ -1,8 +1,6 @@
-diff --git a/ch.threema.threema-web-desktop.metainfo.xml b/ch.threema.threema-web-desktop.metainfo.xml
-index 67cf902..c82fd86 100644
---- a/ch.threema.threema-web-desktop.metainfo.xml
-+++ b/ch.threema.threema-web-desktop.metainfo.xml
-@@ -4,8 +4,10 @@
+--- a/ch.threema.threema-web-desktop.metainfo.xml	2026-02-15 12:49:27.573285090 +0100
++++ b/ch.threema.threema-web-desktop.metainfo.xml	2026-02-15 12:49:27.580891505 +0100
+@@ -4,18 +4,21 @@
    <id>ch.threema.threema-web-desktop</id>
    <name>Threema</name>
    <project_license>AGPL-3.0</project_license>
@@ -15,7 +13,10 @@ index 67cf902..c82fd86 100644
    <url type="homepage">https://threema.ch/</url>
    <url type="help">https://threema.ch/support</url>
    <url type="contact">https://threema.ch/en/request/default?i_have_read_the_faq=1</url>
-@@ -15,7 +17,7 @@
++  <url type="vcs-browser">https://github.com/threema-ch/threema-web-electron</url>
+   <description>
+     <p>This is a COMMUNITY-MAINTAINED UNOFFICIAL Flatpak package.</p>
+     <p>Threema for desktop is a desktop client for Threema, a privacy-focused end-to-end encrypted mobile messenger hosted and developed in Switzerland. With Threema for desktop, you can use Threema on your desktop without compromising security.</p>
      <p>Threema for desktop currently requires an active connection to Threema installed on a smartphone. The next major update of the desktop app will not only introduce a completely redesigned user interface, it will also be based on a totally new architecture. Thanks to multi-device functionality, version 2.0 will no longer require an active connection to your mobile device.</p>
    </description>
    <screenshots>
@@ -24,7 +25,7 @@ index 67cf902..c82fd86 100644
        <caption>The Threema for desktop main window</caption>
        <image type="source">https://raw.githubusercontent.com/threema-ch/threema-web-electron/develop/assets/threema-desktop-screenshot1.png</image>
      </screenshot>
-@@ -178,7 +180,7 @@
+@@ -210,7 +213,7 @@
          <ul>
            <li>macOS: Improved support for Apple processors</li>
            <li>Linux: Fixed an issue where the app icon was missing in some cases</li>

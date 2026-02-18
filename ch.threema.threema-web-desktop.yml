@@ -1,21 +1,22 @@
 app-id: ch.threema.threema-web-desktop
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '24.08'
+base-version: '25.08'
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node20
+  - org.freedesktop.Sdk.Extension.node22
 command: run.sh
 separate-locales: false
 finish-args:
   - --share=ipc
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --socket=pulseaudio
   - --share=network
   - --filesystem=xdg-download
 build-options:
-  append-path: /usr/lib/sdk/node20/bin
+  append-path: /usr/lib/sdk/node22/bin
   env:
     NPM_CONFIG_LOGLEVEL: info
     # Must be set according to upstream: https://github.com/threema-ch/threema-web-electron/pull/4#issuecomment-995968724
@@ -37,12 +38,13 @@ modules:
       env:
         XDG_CACHE_HOME: /run/build/threema-web-desktop/flatpak-node/cache
         npm_config_cache: /run/build/threema-web-desktop/flatpak-node/npm-cache
-        npm_config_nodedir: /usr/lib/sdk/node20
+        npm_config_nodedir: /usr/lib/sdk/node22
         npm_config_offline: 'true'
     sources:
+      # Threema Web Electron release 1.2.49
       - type: git
         url: https://github.com/threema-ch/threema-web-electron.git
-        commit: 8d8eacad7dc8cb7f419ac2279f80fe8754d5fa17
+        commit: 6fc9e3d7065e3f5b977c8668e6dfb524ee2c1450
       # Threema requested that the package must be declared as community maintained
       - type: patch
         path: 0001-note-unofficial-flatpak.patch
@@ -61,7 +63,7 @@ modules:
       - type: script
         dest-filename: run.sh
         commands:
-          - zypak-wrapper.sh /app/main/threema-web "$@"
+          - zypak-wrapper.sh /app/main/threema-web --ozone-platform-hint=auto "$@"
       - type: file
         path: ch.threema.threema-web-desktop.desktop
     build-commands:

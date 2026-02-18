@@ -11,8 +11,8 @@ specific.
 ## Packaging / Release Update Checklist
 
 * [x] Make sure that `THREEMA_WEB_VERSION` environment variable matches the
-  `version` field in the `package.json` of the `app/dependencies/threema-web`
-  submodule (as described in the README).
+  `version` field in the `package.json` of the `app/dependencies/threema-web` of the `threema-web-electron` submodule (as described in the README).
+  It can also be inherited from `threemaWebVersion` of `app/package.json`.
 * [x] Since the app uses Electron we use the official Flatpak Electron template.
   However, as described in detail here [2] we need to pre-fetch all dependencies,
   as node may not connect to the Internet within the build step.
@@ -26,6 +26,8 @@ specific.
       flatpak-node-generator npm -r --electron-node-headers \
               package-lock.json
 
+  Copy the generated `generated-sources.json` to your own `ch.threema.threema-web-desktop` branch.
+  
   We also need to add the electron headers, otherwise the postinstall of electron
   will try to fetch additional dependencies in the build step as well.
 
