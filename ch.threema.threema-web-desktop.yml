@@ -94,3 +94,4 @@ modules:
       # Icons
       - install -Dm644 app/assets/icons/png/consumer-128x128.png /app/share/icons/hicolor/128x128/apps/ch.threema.threema-web-desktop.png
       - install -Dm644 app/assets/icons/png/consumer-512x512.png /app/share/icons/hicolor/512x512/apps/ch.threema.threema-web-desktop.png
+
